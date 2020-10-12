@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+# why do I refer to these with a capital?
+# why does primary/secondary metric tables not have underscore(from model name)?
+Country.delete_all
+Region.delete_all
+# PrimaryMetric.delete_all
+# SecondaryMetric.delete_all
+
+filename = Rails.root.join('db/country_wise_latest.csv')
+
+puts "Loading source csv from: #{filename}"
+
+csv_data = File.read(filename)
+stats = CSV.parse(csv_data, headers: true, encoding: 'utf-8')
+
+stats.each do |s|
+  region = Region.find_or_create_by(name: s['WHO Region'])
+  # puts region.name
+  if region&.valid?
+     country = region.countries.create(
+      name: s['Country/Region']
+    )
+  else
+    puts "Invalid region: #{region} for the country #{m['Country/Region']}."
+  end
+end
+puts "Created #{Region.count} regions"
+puts "Created #{Country.count} countries"
+# puts "Created #{PrimaryMetric.count} Primary metrics"
+# puts "Created #{SecondaryMetric.count} Secondary metrics"
+
+
