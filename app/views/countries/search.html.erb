@@ -1,6 +1,7 @@
 <h1 class="title is-2 mb-0">Search result for: <%=@keyword%></h1>
 <h1 class="title is-5">Found: <%=@search_country.length%> result(s).<h1>
 
+<%if(@search_country.length > 0)%>
 <% for sc in @search_country%>
 <p>Country name: <%=sc[0]%></p>
 <p>Confirmed : <%=sc[1]%></p>
@@ -9,3 +10,7 @@
 <p>Active : <%=sc[4]%></p>
 <br>
 <%end%>
+<%else%>
+<p>No results found. Please Search for a valid country name.</p>
+<%end%>
+
