@@ -2,9 +2,9 @@ require 'csv'
 
 # why do I refer to these with a capital?
 # why does primary/secondary metric tables not have underscore(from model name)?
+PrimaryMetric.delete_all
 Country.delete_all
 Region.delete_all
-# PrimaryMetric.delete_all
 # SecondaryMetric.delete_all
 
 filename = Rails.root.join('db/country_wise_latest.csv')
@@ -21,11 +21,23 @@ stats.each do |s|
     country = region.countries.create(
       name: s['Country/Region']
     )
+    pm = country.primary_metrics.create(
+      confirmed: s['Confirmed'],
+      deaths: s['Deaths'],
+      recovered: s['Recovered'],
+      active: s['Active']
+    )
+    # sm = country.secondary_metrics.create(
+    #   deathPer: s['Confirmed'],
+    #   deaths: s['Deaths'],
+    #   recovered: s['Recovered'],
+    #   active: s['Active']
+    # )
   else
     puts "Invalid region: #{region} for the country #{m['Country/Region']}."
   end
 end
 puts "Created #{Region.count} regions"
 puts "Created #{Country.count} countries"
-# puts "Created #{PrimaryMetric.count} Primary metrics"
+puts "Created #{PrimaryMetric.count} Primary metrics"
 # puts "Created #{SecondaryMetric.count} Secondary metrics"
