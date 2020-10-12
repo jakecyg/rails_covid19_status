@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'worlds/index'
   get 'countries/index'
   get 'countries/show'
   get 'countries/search'

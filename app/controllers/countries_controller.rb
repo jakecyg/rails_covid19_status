@@ -3,7 +3,7 @@ class CountriesController < ApplicationController
     @countries = Country.order('name asc').page(params[:page])
     @all_countries = PrimaryMetric.joins("INNER JOIN countries ON countries.id = primary_metrics.country_id")
                                   .pluck(:name, :confirmed, :deaths, :recovered, :active)
-    @all_countries = Kaminari.paginate_array(@all_countries).page(params[:page]).per(10)
+    @all_countries = Kaminari.paginate_array(@all_countries).page(params[:page]).per(5)
   end
 
   def show

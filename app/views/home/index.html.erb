@@ -1,8 +1,9 @@
-<h1 class="title is-1">World Covid-19 Status</h1>
+<h1 class="title is-1">Covid-19 Status</h1>
 
-<%# align colons somehow %>
-<p>World-wide confirmed: <%=@wwConfirmed%></p>
-<p>World-wide death: <%=@wwDeaths%></p>
-<p>World-wide recovered: <%=@wwRecovered%></p>
-<p>World-wide active: <%=@wwActive%></p>
+<p>This site contains Covid19 metrics information on following level of collections:</p>
 <br>
+<ol>
+  <li><%=link_to "World-wide", worlds_index_path%></li>
+  <li>By <%=link_to "region:", regions_index_path%> <%=@regionCount%> total</li>
+  <li>By <%=link_to "countries:", countries_index_path%> <%=@countryCount%> total</li>
+</ol>
