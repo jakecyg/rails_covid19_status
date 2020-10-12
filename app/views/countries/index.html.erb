@@ -1,7 +1,7 @@
 <h1 class="title is-1">Coutry-wide Covid Status</h1>
 <ul>
-  <%@countries.each do |c|%>
-  <li><%=c.name%></li>
-  <%end%>
+<%@countries.each do |c|%>
+<li><%=c.name%></li>
+<%end%>
 </ul>
-
+<%=paginate @countries%>
