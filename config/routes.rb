@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  get 'worlds/index'
-  get 'countries/index'
-  get 'countries/show'
-  get 'countries/search'
-  get 'regions/index'
-  get 'regions/show'
-  get 'regiones/index'
-  get 'regiones/show'
-  get 'about/index'
   get 'home/index'
-  root to: "home#index"
+  get 'countries/search'
+
+  resources :worlds, only: %i[index]
+  resources :regions, only: %i[index show]
+  resources :countries, only: %i[index show search]
+  resources :about, only: %i[index]
+  root to: 'home#index'
 end

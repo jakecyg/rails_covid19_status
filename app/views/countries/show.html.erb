@@ -1,2 +1,12 @@
-<h1>Countries#show</h1>
-<p>Find me in app/views/countries/show.html.erb</p>
+<p class="title is-3"><%=@country.name%></p>
+<% @complete_metrics.each do |cm| %>
+<p>Confirmed : <%=cm[1]%></p>
+<p>Death : <%=cm[2]%></p>
+<p>Recovered : <%=cm[3]%></p>
+<p>Active : <%=cm[4]%></p>
+<p>Death Per Hundred : <%=cm[5]%></p>
+<p>Recovered Per Hundred : <%=cm[6]%></p>
+<p>Death Per Recovered Hundred : <%=cm[7]%></p>
+<p><%= link_to "back to list", countries_path %></p>
+<br>
+<%end%>
