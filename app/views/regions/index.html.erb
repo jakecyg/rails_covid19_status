@@ -1,2 +1,13 @@
-<h1>Regions#index</h1>
-<p>Find me in app/views/regions/index.html.erb</p>
+<h1 class="title is-1">Regional Covid Status</h1>
+<ul>
+<%count = 0%>
+  <%@regions.each do |r|%>
+  <li class="title is-5 mb-0"><%=r.name%></li>
+    <li>Total confirmed: <%=@regionTotalConfirmedArray[count]%></li>
+    <li>Total death: <%=@regionTotalDeathArray[count]%></li>
+    <li>Total recovered: <%=@regionTotalRecoveredArray[count]%></li>
+    <li>Total active: <%=@regionTotalactiveArray[count]%></li>
+  <%count += 1 %>
+  <br>
+  <%end%>
+</ul>

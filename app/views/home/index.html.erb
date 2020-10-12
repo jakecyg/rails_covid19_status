@@ -1,13 +1,8 @@
-<h1>World Covid-19 Status</h1>
+<h1 class="title is-1">World Covid-19 Status</h1>
 
 <%# align colons somehow %>
-<p>World-wide confirmed count: <%=@wwConfirmed%></p>
-<p>World-wide death count: <%=@wwDeaths%></p>
-<p>World-wide recovered count: <%=@wwRecovered%></p>
-<p>World-wide active count: <%=@wwActive%></p>
+<p>World-wide confirmed: <%=@wwConfirmed%></p>
+<p>World-wide death: <%=@wwDeaths%></p>
+<p>World-wide recovered: <%=@wwRecovered%></p>
+<p>World-wide active: <%=@wwActive%></p>
 <br>
-<ul>
-<%@regions.each do |r|%>
-<li><%=r.name%></li>
-<%end%>
-</ul>
