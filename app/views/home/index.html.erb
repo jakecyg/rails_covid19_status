@@ -1,2 +1,6 @@
 <h1>World Covid-19 Status</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<ul>
+<%@regions.each do |r|%>
+<li><%=r.name%></li>
+<%end%>
+</ul>
