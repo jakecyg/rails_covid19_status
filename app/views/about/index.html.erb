@@ -1,4 +1,14 @@
-<h1>About this site:</h1>
-<p>All data source used in this website originates from https://www.kaggle.com/imdevskp/corona-virus-report</p>
-<p>Data modeled based on the following ERD</p>
+<h1 class="title is-3">About this site:</h1>
+
+<p class="title is-5 mb-0">Data Description:</p>
+<p>All data source used in this website originates from <a href='https://www.kaggle.com/imdevskp/corona-virus-report' target='blank'>here.</a></p>
+<P>Dataset contains world wide metrics on the ongoing Covid-19 pandemic.</P>
+<P>Data is structured in a 'per-country' manner with various statistics such as confirmed, recovered, and death count.</P>
+<p>Region and Country columns will be extracted into separate tables and a few metrics column will be extracted to form primary and secondary metrics tables.</p>
+<P>Each region will have a one to many relationship with countries, and countries will have a one to many relationship with metrics tables as well.</P>
+<P>Extracting various columns and forming distinct tables will allow detailed and comprehensive queries on desired sets of data.</P>
+
+<br>
+
+<p class="title is-5 mb-0">Data modeled based on the following ERD:</p>
 <%=image_tag('erd/erd.png')%>
