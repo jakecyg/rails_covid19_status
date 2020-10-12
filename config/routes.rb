@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'countries/index'
   get 'countries/show'
+  get 'countries/search'
   get 'regions/index'
   get 'regions/show'
   get 'regiones/index'

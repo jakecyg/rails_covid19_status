@@ -42,18 +42,17 @@
       </div>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
+    <form action="/countries/search">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="control">
+            <input class="input" type="text" placeholder="Search for countries" name="q">
+          </div>
+          <div class="buttons">
+              <button class="button is-primary"><strong>Search</strong></button>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </nav>
     <%= yield %>

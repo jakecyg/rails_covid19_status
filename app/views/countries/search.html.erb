@@ -1,0 +1,11 @@
+<h1 class="title is-2 mb-0">Search result for: <%=@keyword%></h1>
+<h1 class="title is-5">Found: <%=@search_country.length%> result(s).<h1>
+
+<% for sc in @search_country%>
+<p>Country name: <%=sc[0]%></p>
+<p>Confirmed : <%=sc[1]%></p>
+<p>Death : <%=sc[2]%></p>
+<p>Recovered : <%=sc[3]%></p>
+<p>Active : <%=sc[4]%></p>
+<br>
+<%end%>

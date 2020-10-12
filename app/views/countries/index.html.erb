@@ -1,7 +1,10 @@
 <h1 class="title is-1">Coutry-wide Covid Status</h1>
-<ul>
-<%@countries.each do |c|%>
-<li><%=c.name%></li>
+<% for sc in @all_countries%>
+<p>Country name: <%=sc[0]%></p>
+<p>Confirmed : <%=sc[1]%></p>
+<p>Death : <%=sc[2]%></p>
+<p>Recovered : <%=sc[3]%></p>
+<p>Active : <%=sc[4]%></p>
+<br>
 <%end%>
-</ul>
-<%=paginate @countries%>
+<%=paginate @all_countries%>
