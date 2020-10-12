@@ -18,7 +18,7 @@ stats.each do |s|
   region = Region.find_or_create_by(name: s['WHO Region'])
   # puts region.name
   if region&.valid?
-     country = region.countries.create(
+    country = region.countries.create(
       name: s['Country/Region']
     )
   else
@@ -29,5 +29,3 @@ puts "Created #{Region.count} regions"
 puts "Created #{Country.count} countries"
 # puts "Created #{PrimaryMetric.count} Primary metrics"
 # puts "Created #{SecondaryMetric.count} Secondary metrics"
-
-

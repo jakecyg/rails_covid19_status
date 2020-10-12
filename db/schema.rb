@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_042830) do
+ActiveRecord::Schema.define(version: 2020_10_12_043524) do
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2020_10_12_042830) do
     t.index ["region_id"], name: "index_countries_on_region_id"
   end
 
+  create_table "primary_metrics", force: :cascade do |t|
+    t.integer "confirmed"
+    t.integer "deaths"
+    t.integer "recovered"
+    t.integer "active"
+    t.integer "country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_primary_metrics_on_country_id"
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -27,4 +38,5 @@ ActiveRecord::Schema.define(version: 2020_10_12_042830) do
   end
 
   add_foreign_key "countries", "regions"
+  add_foreign_key "primary_metrics", "countries"
 end
