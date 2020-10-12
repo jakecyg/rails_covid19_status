@@ -1,4 +1,11 @@
 <h1>World Covid-19 Status</h1>
+
+<%# align colons somehow %>
+<p>World-wide confirmed count: <%=@wwConfirmed%></p>
+<p>World-wide death count: <%=@wwDeaths%></p>
+<p>World-wide recovered count: <%=@wwRecovered%></p>
+<p>World-wide active count: <%=@wwActive%></p>
+<br>
 <ul>
 <%@regions.each do |r|%>
 <li><%=r.name%></li>
